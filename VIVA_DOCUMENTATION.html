@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIPESM - Viva Documentation</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #3b82f6;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            font-size: 18px;
+            color: #64748b;
+            font-weight: 300;
+        }
+        
+        .header .student-info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #475569;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #1e40af;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .subsection-title {
+            font-size: 20px;
+            color: #3b82f6;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        
+        .content {
+            text-align: justify;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            margin-bottom: 8px;
+            border-left: 3px solid #3b82f6;
+            padding-left: 20px;
+            background: #f8fafc;
+            border-radius: 4px;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 5px;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tech-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .tech-item.frontend {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .tech-item.backend {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .tech-item.ai {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .tech-item.database {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .algorithm-box {
+            background: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .algorithm-box h4 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+        
+        .algorithm-box ol {
+            margin-left: 20px;
+        }
+        
+        .algorithm-box li {
+            margin-bottom: 8px;
+        }
+        
+        .conclusion {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .conclusion h3 {
+            color: #059669;
+            margin-bottom: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        table th, table td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        table th {
+            background: #3b82f6;
+            color: white;
+            font-weight: 600;
+        }
+        
+        table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AIPESM</h1>
+        <div class="subtitle">AI-Powered Academic Performance Evaluation & Support System</div>
+        <div class="student-info">
+            <p><strong>Project Type:</strong> Web Application | <strong>Technology:</strong> Full-Stack with AI Integration</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">1. Introduction</h2>
+        <div class="content">
+            <p><strong>AIPESM (AI-Powered Academic Performance Evaluation & Support System)</strong> is a comprehensive web-based application designed to revolutionize academic performance tracking and student support. The system provides intelligent insights into student performance while offering personalized learning recommendations through AI-powered analysis.</p>
+            
+            <p>The platform addresses critical challenges in modern education by automating performance tracking, identifying areas where students need improvement, and providing targeted learning resources based on individual academic weaknesses.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>Problem Statement</h3>
+            <p>Traditional academic tracking systems lack intelligent analysis and personalized recommendations. Teachers struggle to identify struggling students early, and students lack access to targeted learning resources based on their specific weaknesses.</p>
+        </div>
+        
+        <div class="highlight-box" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+            <h3>Solution</h3>
+            <p>AIPESM integrates AI-powered analysis to automatically identify weak subjects, analyze syllabus content, and recommend personalized learning resources using semantic similarity algorithms and external search APIs.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">2. Objectives</h2>
+        <ul class="feature-list">
+            <li>Develop a user-friendly interface for teachers to manage classes, students, and academic records</li>
+            <li>Implement real-time performance tracking and visualization through interactive charts</li>
+            <li>Create an AI-powered recommendation system that identifies weak subjects and suggests relevant learning resources</li>
+            <li>Design a responsive web application accessible across all devices</li>
+            <li>Ensure secure authentication and role-based access control for teachers and students</li>
+            <li>Integrate machine learning algorithms for intelligent content matching and ranking</li>
+        </ul>
+    </div>
+
+    <div class="section page-break">
+        <h2 class="section-title">3. Features & Functionalities</h2>
+        
+        <h3 class="subsection-title">3.1 Teacher Dashboard</h3>
+        <ul class="feature-list">
+            <li><strong>Class Management:</strong> Create, view, and delete classes with intuitive interface</li>
+            <li><strong>Student Management:</strong> Add, remove, and manage student records</li>
+            <li><strong>Subject Management:</strong> Add subjects to classes and track performance per subject</li>
+            <li><strong>Marks Entry & Updates:</strong> Enter and update student marks for different subjects</li>
+            <li><strong>Performance Analytics:</strong> View class-wide performance with visual charts showing average marks per subject</li>
+            <li><strong>Student Profiles:</strong> Access detailed individual student performance records</li>
+        </ul>
+        
+        <h3 class="subsection-title">3.2 Student Dashboard</h3>
+        <ul class="feature-list">
+            <li><strong>Performance Visualization:</strong> Interactive bar charts showing marks across all subjects</li>
+            <li><strong>Mark Display:</strong> View all subject marks with color-coded performance indicators (Excellent/Good/Average/Needs Improvement)</li>
+            <li><strong>AI Learning Recommendations:</strong> Automatically receive personalized learning resources for weak subjects</li>
+            <li><strong>Progress Tracking:</strong> Visual progress bars indicating performance levels</li>
+        </ul>
+        
+        <h3 class="subsection-title">3.3 AI-Powered Features</h3>
+        <ul class="feature-list">
+            <li><strong>Weak Subject Identification:</strong> Automatic detection of subjects where marks are below 40%</li>
+            <li><strong>Semantic Syllabus Analysis:</strong> Parsing and processing syllabus content to extract relevant topics</li>
+            <li><strong>Intelligent Resource Matching:</strong> Using TF-IDF vectorization and cosine similarity to match learning resources with syllabus content</li>
+            <li><strong>External Resource Search:</strong> Integration with SerpAPI to find relevant online learning materials</li>
+            <li><strong>Content Ranking:</strong> Machine learning algorithms rank resources by relevance to syllabus</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">4. Technology Stack</h2>
+        
+        <div class="tech-stack">
+            <div class="tech-item frontend">
+                <strong>Frontend</strong><br>
+                HTML5, CSS3, Tailwind CSS, JavaScript, Chart.js
+            </div>
+            <div class="tech-item backend">
+                <strong>Backend</strong><br>
+                Python 3, Flask Framework
+            </div>
+            <div class="tech-item ai">
+                <strong>AI/ML</strong><br>
+                scikit-learn, TF-IDF, Cosine Similarity
+            </div>
+            <div class="tech-item database">
+                <strong>Database</strong><br>
+                MongoDB (NoSQL)
+            </div>
+        </div>
+        
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Technology</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Frontend Framework</td>
+                <td>HTML5, CSS3, Tailwind CSS</td>
+                <td>Modern, responsive UI design</td>
+            </tr>
+            <tr>
+                <td>Backend Framework</td>
+                <td>Flask (Python)</td>
+                <td>Web server and API endpoints</td>
+            </tr>
+            <tr>
+                <td>Database</td>
+                <td>MongoDB</td>
+                <td>Store users, classes, students, marks, syllabus</td>
+            </tr>
+            <tr>
+                <td>Machine Learning</td>
+                <td>scikit-learn</td>
+                <td>TF-IDF vectorization and similarity calculation</td>
+            </tr>
+            <tr>
+                <td>Data Visualization</td>
+                <td>Chart.js</td>
+                <td>Interactive performance charts</td>
+            </tr>
+            <tr>
+                <td>Security</td>
+                <td>Werkzeug</td>
+                <td>Password hashing and session management</td>
+            </tr>
+            <tr>
+                <td>External API</td>
+                <td>SerpAPI</td>
+                <td>Search for learning resources</td>
+            </tr>
+            <tr>
+                <td>Deployment</td>
+                <td>Gunicorn, Heroku</td>
+                <td>Production server and hosting</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section page-break">
+        <h2 class="section-title">5. System Architecture</h2>
+        
+        <div class="content">
+            <h3 class="subsection-title">5.1 Database Schema</h3>
+            <p>The system uses MongoDB with the following collections:</p>
+            
+            <div class="code-block">
+<strong>Collections:</strong>
+- users: {email, password_hash, role}
+- classes: {_id, name, teacher_email}
+- students: {email, name, class_id}
+- subjects: {subject, class_id}
+- marks: {student_email, class_id, subject, marks}
+- syllabus: {class_id, subject, unit, content}
+- resources: {subject, type, title, description, link}
+            </div>
+            
+            <h3 class="subsection-title">5.2 Application Flow</h3>
+            <div class="algorithm-box">
+                <h4>User Authentication Flow:</h4>
+                <ol>
+                    <li>User submits credentials on login page</li>
+                    <li>System verifies credentials against MongoDB users collection</li>
+                    <li>Session created with user role (teacher/student)</li>
+                    <li>Redirect to appropriate dashboard based on role</li>
+                </ol>
+            </div>
+            
+            <div class="algorithm-box">
+                <h4>AI Recommendation Flow:</h4>
+                <ol>
+                    <li>System identifies subjects where student marks < 40%</li>
+                    <li>Retrieves syllabus content for identified weak subjects</li>
+                    <li>Builds search query combining subject name and syllabus keywords</li>
+                    <li>Queries SerpAPI to fetch relevant learning resources</li>
+                    <li>Uses TF-IDF vectorization on syllabus and search results</li>
+                    <li>Calculates cosine similarity between syllabus and each resource</li>
+                    <li>Ranks resources by similarity score</li>
+                    <li>Filters out irrelevant results (blacklist filtering)</li>
+                    <li>Returns top 5 most relevant resources to student</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">6. Key Algorithms & Implementation</h2>
+        
+        <h3 class="subsection-title">6.1 TF-IDF Vectorization</h3>
+        <div class="content">
+            <p>Term Frequency-Inverse Document Frequency (TF-IDF) is used to convert text documents into numerical vectors, enabling mathematical comparison between syllabus content and learning resources.</p>
+            <div class="code-block">
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vectorizer = TfidfVectorizer()
+vectors = vectorizer.fit_transform([syllabus_text] + resource_texts)
+            </div>
+        </div>
+        
+        <h3 class="subsection-title">6.2 Cosine Similarity</h3>
+        <div class="content">
+            <p>Cosine similarity measures the cosine of the angle between two vectors, providing a similarity score between 0 and 1. Higher scores indicate more similar content.</p>
+            <div class="code-block">
+from sklearn.metrics.pairwise import cosine_similarity
+
+similarities = cosine_similarity(vectors[0:1], vectors[1:]).flatten()
+            </div>
+        </div>
+        
+        <h3 class="subsection-title">6.3 Syllabus Parsing</h3>
+        <div class="content">
+            <p>Regular expressions are used to parse syllabus text into units, extracting unit names and content for structured analysis.</p>
+            <div class="code-block">
+def parse_syllabus(text):
+    parts = re.split(r"(Unit\s+\d+:)", text)
+    # Extract units and content
+    # Return structured unit data
+            </div>
+        </div>
+    </div>
+
+    <div class="section page-break">
+        <h2 class="section-title">7. User Interface Design</h2>
+        
+        <div class="content">
+            <h3 class="subsection-title">7.1 Design Principles</h3>
+            <ul class="feature-list">
+                <li><strong>Modern & Clean:</strong> Gradient backgrounds, glass morphism effects, smooth animations</li>
+                <li><strong>Responsive:</strong> Mobile-first design that works on all screen sizes</li>
+                <li><strong>Accessible:</strong> Proper focus states, semantic HTML, keyboard navigation</li>
+                <li><strong>Intuitive:</strong> Clear navigation, visual feedback, consistent design language</li>
+            </ul>
+            
+            <h3 class="subsection-title">7.2 Color Coding System</h3>
+            <table>
+                <tr>
+                    <th>Performance Level</th>
+                    <th>Marks Range</th>
+                    <th>Color Code</th>
+                </tr>
+                <tr>
+                    <td>Excellent</td>
+                    <td>80-100</td>
+                    <td style="background: #22c55e; color: white;">Green</td>
+                </tr>
+                <tr>
+                    <td>Good</td>
+                    <td>60-79</td>
+                    <td style="background: #3b82f6; color: white;">Blue</td>
+                </tr>
+                <tr>
+                    <td>Average</td>
+                    <td>40-59</td>
+                    <td style="background: #eab308; color: white;">Yellow</td>
+                </tr>
+                <tr>
+                    <td>Needs Improvement</td>
+                    <td>0-39</td>
+                    <td style="background: #ef4444; color: white;">Red</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">8. Security Features</h2>
+        <ul class="feature-list">
+            <li><strong>Password Hashing:</strong> Uses Werkzeug's password hashing with secure algorithms</li>
+            <li><strong>Session Management:</strong> Secure session-based authentication</li>
+            <li><strong>Role-Based Access:</strong> Teachers and students have separate dashboards and permissions</li>
+            <li><strong>Authorization Checks:</strong> All routes verify user role before allowing access</li>
+            <li><strong>Input Validation:</strong> Form validation on both client and server side</li>
+        </ul>
+    </div>
+
+    <div class="section page-break">
+        <h2 class="section-title">9. Testing & Validation</h2>
+        
+        <h3 class="subsection-title">9.1 Functionality Testing</h3>
+        <ul class="feature-list">
+            <li>User authentication and authorization</li>
+            <li>CRUD operations for classes, students, subjects, and marks</li>
+            <li>AI recommendation accuracy</li>
+            <li>Chart rendering and data visualization</li>
+            <li>Form submissions and data persistence</li>
+        </ul>
+        
+        <h3 class="subsection-title">9.2 Performance Testing</h3>
+        <ul class="feature-list">
+            <li>Database query optimization</li>
+            <li>Page load times</li>
+            <li>AI processing speed for recommendations</li>
+            <li>Concurrent user handling</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">10. Advantages & Benefits</h2>
+        
+        <div class="tech-stack">
+            <div class="tech-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <strong>For Teachers</strong><br>
+                • Automated performance tracking<br>
+                • Quick identification of struggling students<br>
+                • Centralized class management
+            </div>
+            <div class="tech-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <strong>For Students</strong><br>
+                • Personalized learning recommendations<br>
+                • Visual performance insights<br>
+                • Targeted resource suggestions
+            </div>
+        </div>
+        
+        <ul class="feature-list" style="margin-top: 20px;">
+            <li>Efficient data management with MongoDB's flexible schema</li>
+            <li>Scalable architecture supporting multiple classes and students</li>
+            <li>Real-time performance analytics and visualization</li>
+            <li>Intelligent AI-powered recommendations based on actual performance data</li>
+            <li>Modern, responsive interface accessible on any device</li>
+            <li>Secure authentication and role-based access control</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">11. Future Enhancements</h2>
+        <ul class="feature-list">
+            <li>Email notifications for low performance alerts</li>
+            <li>Advanced analytics with trend analysis and predictions</li>
+            <li>Integration with learning management systems (LMS)</li>
+            <li>Mobile application development (iOS/Android)</li>
+            <li>Multi-language support</li>
+            <li>Advanced AI models (BERT, GPT) for better content understanding</li>
+            <li>Collaborative features for peer learning</li>
+            <li>Export functionality for reports (PDF, Excel)</li>
+            <li>Attendance tracking integration</li>
+            <li>Parent portal for monitoring student progress</li>
+        </ul>
+    </div>
+
+    <div class="section page-break">
+        <h2 class="section-title">12. Challenges Faced & Solutions</h2>
+        
+        <table>
+            <tr>
+                <th>Challenge</th>
+                <th>Solution</th>
+            </tr>
+            <tr>
+                <td>Matching learning resources with syllabus content</td>
+                <td>Implemented TF-IDF vectorization and cosine similarity for semantic matching</td>
+            </tr>
+            <tr>
+                <td>Parsing unstructured syllabus text</td>
+                <td>Developed regex-based parser to extract units and content systematically</td>
+            </tr>
+            <tr>
+                <td>Filtering irrelevant search results</td>
+                <td>Created blacklist filter and relevance ranking algorithm</td>
+            </tr>
+            <tr>
+                <td>Creating responsive, modern UI</td>
+                <td>Used Tailwind CSS with custom gradients and animations</td>
+            </tr>
+            <tr>
+                <td>Real-time performance visualization</td>
+                <td>Integrated Chart.js with dynamic data binding</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">13. Conclusion</h2>
+        
+        <div class="conclusion">
+            <h3>Project Summary</h3>
+            <p>AIPESM successfully demonstrates the integration of web technologies with machine learning algorithms to create an intelligent academic performance tracking system. The platform provides valuable insights for both educators and students, facilitating data-driven educational decisions.</p>
+            
+            <p><strong>Key Achievements:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Successfully implemented AI-powered recommendation system</li>
+                <li>Created intuitive, modern user interface</li>
+                <li>Developed scalable database architecture</li>
+                <li>Integrated external APIs for resource discovery</li>
+                <li>Implemented secure authentication and authorization</li>
+            </ul>
+            
+            <p style="margin-top: 15px;"><strong>The system is ready for deployment and can significantly improve the academic tracking and support process in educational institutions.</strong></p>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; text-align: center; color: #64748b; font-size: 12px;">
+        <p><strong>AIPESM - AI-Powered Academic Performance Evaluation & Support System</strong></p>
+        <p>Project Documentation for Viva Voce Examination</p>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block title %}Student Dashboard - AIPESM{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Page Header -->
+    <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 p-6">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Student Dashboard</h1>
+        <p class="text-gray-600">Track your academic performance and access personalized learning resources</p>
+    </div>
+
+    <!-- Performance Chart -->
+    {% if chart_subjects %}
+    <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 p-6">
+        <div class="flex items-center space-x-3 mb-6">
+            <div class="p-2 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-gray-900">Your Performance Overview</h2>
+        </div>
+        <div class="h-80">
+            <canvas id="studentChart"></canvas>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Marks Card -->
+    <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 p-6">
+        <div class="flex items-center space-x-3 mb-6">
+            <div class="p-2 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-gray-900">Your Marks</h2>
+        </div>
+
+        {% if marks %}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {% for m in marks %}
+                    <div class="relative p-5 bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-semibold text-gray-900">{{ m.subject }}</h3>
+                            {% if m.marks >= 80 %}
+                                <span class="px-2 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full">Excellent</span>
+                            {% elif m.marks >= 60 %}
+                                <span class="px-2 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full">Good</span>
+                            {% elif m.marks >= 40 %}
+                                <span class="px-2 py-1 text-xs font-semibold text-yellow-700 bg-yellow-100 rounded-full">Average</span>
+                            {% else %}
+                                <span class="px-2 py-1 text-xs font-semibold text-red-700 bg-red-100 rounded-full">Needs Improvement</span>
+                            {% endif %}
+                        </div>
+                        <div class="flex items-baseline space-x-2">
+                            <span class="text-3xl font-bold {% if m.marks >= 80 %}text-green-600{% elif m.marks >= 60 %}text-blue-600{% elif m.marks >= 40 %}text-yellow-600{% else %}text-red-600{% endif %}">
+                                {{ m.marks }}
+                            </span>
+                            <span class="text-gray-500 text-sm">/ 100</span>
+                        </div>
+                        <!-- Progress Bar -->
+                        <div class="mt-4">
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div
+                                    class="h-2 rounded-full transition-all duration-500 {% if m.marks >= 80 %}bg-green-500{% elif m.marks >= 60 %}bg-blue-500{% elif m.marks >= 40 %}bg-yellow-500{% else %}bg-red-500{% endif %}"
+                                    style="width: {{ m.marks }}%"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-12 text-gray-500">
+                <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <p>No marks available yet.</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- AI Recommendations -->
+    {% if weak_subjects %}
+    <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl shadow-lg border-2 border-red-200 p-6">
+        <div class="flex items-center space-x-3 mb-6">
+            <div class="p-2 bg-gradient-to-br from-red-400 to-orange-500 rounded-lg">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+            </div>
+            <div>
+                <h2 class="text-xl font-semibold text-red-900">AI Learning Recommendations</h2>
+                <p class="text-sm text-red-700">Personalized resources to help improve your performance</p>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            {% for subject in weak_subjects %}
+                <div class="bg-white rounded-xl p-5 border border-red-100 shadow-sm">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                        <h3 class="text-lg font-semibold text-gray-900">{{ subject }}</h3>
+                        <span class="px-3 py-1 text-xs font-semibold text-red-700 bg-red-100 rounded-full">Needs Attention</span>
+                    </div>
+                    
+                    {% if recommendations[subject] %}
+                        <div class="space-y-3">
+                            {% for r in recommendations[subject][:5] %}
+                                <a
+                                    href="{{ r.link }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="block p-4 bg-gray-50 hover:bg-primary-50 rounded-lg border border-gray-200 hover:border-primary-300 transition-all duration-200 group"
+                                >
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex-1">
+                                            <h4 class="font-medium text-gray-900 group-hover:text-primary-700 transition-colors mb-1">
+                                                {{ r.title }}
+                                            </h4>
+                                            {% if r.snippet %}
+                                            <p class="text-sm text-gray-600 line-clamp-2">
+                                                {{ r.snippet }}
+                                            </p>
+                                            {% endif %}
+                                        </div>
+                                        <svg class="w-5 h-5 text-gray-400 group-hover:text-primary-600 ml-3 flex-shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-sm text-gray-500 italic">No recommendations available at this time.</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl shadow-lg border-2 border-green-200 p-6">
+        <div class="flex items-center space-x-3">
+            <div class="p-2 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div>
+                <h2 class="text-xl font-semibold text-green-900">Great Progress!</h2>
+                <p class="text-sm text-green-700">You're performing well in all subjects. Keep up the excellent work!</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+{% if chart_subjects %}
+const sctx = document.getElementById('studentChart');
+const chartData = {
+    labels: {{ chart_subjects | tojson }},
+    datasets: [{
+        label: 'Marks',
+        data: {{ chart_marks | tojson }},
+        backgroundColor: function(context) {
+            const value = context.parsed.y;
+            if (value >= 80) return 'rgba(34, 197, 94, 0.7)';
+            if (value >= 60) return 'rgba(59, 130, 246, 0.7)';
+            if (value >= 40) return 'rgba(234, 179, 8, 0.7)';
+            return 'rgba(239, 68, 68, 0.7)';
+        },
+        borderColor: function(context) {
+            const value = context.parsed.y;
+            if (value >= 80) return 'rgba(34, 197, 94, 1)';
+            if (value >= 60) return 'rgba(59, 130, 246, 1)';
+            if (value >= 40) return 'rgba(234, 179, 8, 1)';
+            return 'rgba(239, 68, 68, 1)';
+        },
+        borderWidth: 2,
+        borderRadius: 8,
+        borderSkipped: false,
+    }]
+};
+
+new Chart(sctx, {
+    type: 'bar',
+    data: chartData,
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                padding: 12,
+                titleFont: {
+                    size: 14,
+                    weight: 'bold'
+                },
+                bodyFont: {
+                    size: 13
+                },
+                cornerRadius: 8,
+                callbacks: {
+                    label: function(context) {
+                        const value = context.parsed.y;
+                        let status = '';
+                        if (value >= 80) status = ' (Excellent)';
+                        else if (value >= 60) status = ' (Good)';
+                        else if (value >= 40) status = ' (Average)';
+                        else status = ' (Needs Improvement)';
+                        return 'Marks: ' + value + status;
+                    }
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                    stepSize: 10,
+                    font: {
+                        size: 12
+                    }
+                },
+                grid: {
+                    color: 'rgba(0, 0, 0, 0.05)'
+                }
+            },
+            x: {
+                ticks: {
+                    font: {
+                        size: 12
+                    }
+                },
+                grid: {
+                    display: false
+                }
+            }
+        }
+    }
+});
+{% endif %}
+</script>
+{% endblock %}

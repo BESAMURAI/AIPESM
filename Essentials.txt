@@ -1,0 +1,5 @@
+$env:MONGODB_URI="mongodb+srv://LEGEND:striketheblood@main.gaoyyp2.mongodb.net/AIPESM?appName=main"
+
+$env:SERPAPI_KEY="50da32e564ab814171d8c36f9cb74344c9789a626197739905961331909c3958"
+
+$env:FLASK_SECRET_KEY="super-secret-key"

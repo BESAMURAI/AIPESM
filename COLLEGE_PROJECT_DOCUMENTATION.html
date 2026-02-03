@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIPESM - College Project Documentation</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm 2cm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #000;
+            background: #fff;
+            font-size: 12pt;
+        }
+        
+        .cover-page {
+            text-align: center;
+            padding: 100px 50px;
+            page-break-after: always;
+        }
+        
+        .cover-title {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-top: 150px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        .cover-subtitle {
+            font-size: 18pt;
+            margin-bottom: 100px;
+        }
+        
+        .cover-info {
+            margin-top: 200px;
+            font-size: 12pt;
+        }
+        
+        .toc {
+            page-break-after: always;
+        }
+        
+        .toc-title {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+        
+        .toc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .toc-table th {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            background: #f0f0f0;
+        }
+        
+        .toc-table td {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+        
+        .toc-table td:first-child {
+            width: 50px;
+            text-align: center;
+        }
+        
+        .toc-table td:nth-child(2) {
+            width: 350px;
+        }
+        
+        .toc-table td:last-child {
+            width: 80px;
+            text-align: center;
+        }
+        
+        .section {
+            page-break-inside: avoid;
+            margin-bottom: 25px;
+        }
+        
+        .section-number {
+            font-weight: bold;
+            font-size: 14pt;
+        }
+        
+        .section-title {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+        
+        .subsection {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .subsection-title {
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 10px;
+        }
+        
+        .subsubsection {
+            margin-left: 40px;
+            margin-bottom: 12px;
+        }
+        
+        .subsubsection-title {
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 8px;
+        }
+        
+        .content {
+            text-align: justify;
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        .list-item {
+            margin-left: 30px;
+            margin-bottom: 8px;
+            list-style-type: disc;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 11pt;
+        }
+        
+        table th, table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        table th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+        
+        .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .figure-title {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        h1 {
+            font-size: 16pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+    <div class="cover-title">AI-Powered Academic Performance<br>Evaluation & Support System</div>
+    <div class="cover-subtitle">(AIPESM)</div>
+    <div class="cover-info">
+        <p><strong>A Project Report</strong></p>
+        <p>Submitted in partial fulfillment of the requirements for the degree of</p>
+        <p><strong>Bachelor of Computer Applications</strong></p>
+        <br><br>
+        <p>Submitted By:</p>
+        <p>[Student Name]</p>
+        <p>[Registration Number]</p>
+        <br><br>
+        <p>Under the guidance of</p>
+        <p><strong>[Supervisor Name]</strong></p>
+        <br><br>
+        <p><strong>[College Name]</strong></p>
+        <p><strong>[Department Name]</strong></p>
+        <p><strong>[Academic Year]</strong></p>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <table class="toc-table">
+        <tr>
+            <th>S.NO</th>
+            <th>TITLE</th>
+            <th>PAGE NO</th>
+        </tr>
+        <tr>
+            <td>1.</td>
+            <td>PROBLEM DEFINITION</td>
+            <td>01</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;1.1 Overview</td>
+            <td>01</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;1.2 Problem Statement</td>
+            <td>01</td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td>INTRODUCTION</td>
+            <td>02</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;2.1 System Specification</td>
+            <td>03</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.1 Hardware Specification</td>
+            <td>03</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.2 Software Specification</td>
+            <td>03</td>
+        </tr>
+        <tr>
+            <td>3.</td>
+            <td>SYSTEM STUDY</td>
+            <td>04</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;3.1 Existing System</td>
+            <td>04</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1 Drawbacks</td>
+            <td>04</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;3.2 Proposed System</td>
+            <td>05</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1 Features</td>
+            <td>05</td>
+        </tr>
+        <tr>
+            <td>4.</td>
+            <td>LITERATURE SURVEY</td>
+            <td>07</td>
+        </tr>
+        <tr>
+            <td>5.</td>
+            <td>SYSTEM DESIGN AND DEVELOPMENT</td>
+            <td>08</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;5.1 Input Design</td>
+            <td>08</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;5.2 Output Design</td>
+            <td>09</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;5.3 Description of Modules</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>6.</td>
+            <td>TESTING AND IMPLEMENTATION</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>7.</td>
+            <td>CONCLUSION</td>
+            <td>17</td>
+        </tr>
+        <tr>
+            <td>8.</td>
+            <td>SCOPE OF FUTURE ENHANCEMENT</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>9.</td>
+            <td>REFERENCES</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>10.</td>
+            <td>APPENDICES</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;A. Diagrams</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;B. Sample Coding</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;C. Sample Input</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;D. Sample Output</td>
+            <td>25</td>
+        </tr>
+    </table>
+</div>
+
+<!-- SECTION 1: PROBLEM DEFINITION -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">1. </span>PROBLEM DEFINITION
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">1.1 Overview</div>
+            <div class="content">
+                The traditional academic performance tracking systems in educational institutions face several challenges in effectively monitoring and improving student performance. Most existing systems are manual, time-consuming, and lack intelligent analysis capabilities. Teachers struggle to identify students who need additional support, and students often lack access to personalized learning resources based on their specific academic weaknesses.
+            </div>
+            <div class="content">
+                The AI-Powered Academic Performance Evaluation & Support System (AIPESM) addresses these challenges by integrating artificial intelligence and machine learning algorithms to provide intelligent performance analysis and personalized learning recommendations. The system automates the process of tracking student performance, identifying areas of improvement, and suggesting relevant educational resources.
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">1.2 Problem Statement</div>
+            <div class="content">
+                Educational institutions require an efficient system to:
+            </div>
+            <ul>
+                <li class="list-item">Track and manage academic performance of students across multiple subjects and classes</li>
+                <li class="list-item">Identify students who are underperforming in specific subjects at an early stage</li>
+                <li class="list-item">Provide personalized learning recommendations based on individual student weaknesses</li>
+                <li class="list-item">Generate comprehensive performance analytics and visualizations for teachers and students</li>
+                <li class="list-item">Automate the process of matching learning resources with syllabus content</li>
+                <li class="list-item">Enable efficient management of classes, students, subjects, and academic records</li>
+            </ul>
+            <div class="content">
+                The current manual systems are inefficient, error-prone, and do not leverage the power of artificial intelligence to provide intelligent insights and recommendations. There is a need for an automated, intelligent system that can analyze academic performance data and provide actionable recommendations to improve student outcomes.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 2: INTRODUCTION -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">2. </span>INTRODUCTION
+        </div>
+        <div class="content">
+            The AI-Powered Academic Performance Evaluation & Support System (AIPESM) is a web-based application designed to revolutionize academic performance tracking and student support through the integration of artificial intelligence and machine learning technologies. The system provides a comprehensive platform for teachers to manage classes, students, and academic records, while offering students personalized insights into their performance and AI-powered learning recommendations.
+        </div>
+        <div class="content">
+            The system utilizes advanced machine learning algorithms including Term Frequency-Inverse Document Frequency (TF-IDF) vectorization and cosine similarity to analyze syllabus content and match it with relevant learning resources. By identifying subjects where students are underperforming, the system automatically searches for and recommends appropriate educational materials, tutorials, and resources to help students improve their understanding and performance.
+        </div>
+        <div class="content">
+            AIPESM features a modern, responsive user interface built with contemporary web technologies, ensuring accessibility across various devices. The system implements secure authentication mechanisms and role-based access control to ensure data privacy and security. Interactive data visualizations using Chart.js provide teachers and students with intuitive performance insights through graphs and charts.
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">2.1 System Specification</div>
+            
+            <div class="subsubsection">
+                <div class="subsubsection-title">2.1.1 Hardware Specification</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Minimum Requirements</th>
+                        <th>Recommended</th>
+                    </tr>
+                    <tr>
+                        <td>Processor</td>
+                        <td>Intel Core i3 or equivalent</td>
+                        <td>Intel Core i5 or higher</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>4 GB</td>
+                        <td>8 GB or higher</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>10 GB free space</td>
+                        <td>20 GB or higher</td>
+                    </tr>
+                    <tr>
+                        <td>Network</td>
+                        <td>Broadband Internet connection</td>
+                        <td>High-speed Internet (10 Mbps+)</td>
+                    </tr>
+                    <tr>
+                        <td>Display</td>
+                        <td>1366 x 768 resolution</td>
+                        <td>1920 x 1080 or higher</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="subsubsection">
+                <div class="subsubsection-title">2.1.2 Software Specification</div>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Technology/Software</th>
+                        <th>Version</th>
+                    </tr>
+                    <tr>
+                        <td>Operating System</td>
+                        <td>Windows/Linux/Mac OS</td>
+                        <td>Any modern version</td>
+                    </tr>
+                    <tr>
+                        <td>Web Browser</td>
+                        <td>Chrome, Firefox, Edge, Safari</td>
+                        <td>Latest version</td>
+                    </tr>
+                    <tr>
+                        <td>Backend Framework</td>
+                        <td>Python Flask</td>
+                        <td>2.0+</td>
+                    </tr>
+                    <tr>
+                        <td>Programming Language</td>
+                        <td>Python</td>
+                        <td>3.8+</td>
+                    </tr>
+                    <tr>
+                        <td>Database</td>
+                        <td>MongoDB</td>
+                        <td>4.0+</td>
+                    </tr>
+                    <tr>
+                        <td>Machine Learning</td>
+                        <td>scikit-learn</td>
+                        <td>1.0+</td>
+                    </tr>
+                    <tr>
+                        <td>Frontend</td>
+                        <td>HTML5, CSS3, JavaScript</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>CSS Framework</td>
+                        <td>Tailwind CSS</td>
+                        <td>3.0+</td>
+                    </tr>
+                    <tr>
+                        <td>Chart Library</td>
+                        <td>Chart.js</td>
+                        <td>3.0+</td>
+                    </tr>
+                    <tr>
+                        <td>Web Server</td>
+                        <td>Gunicorn</td>
+                        <td>20.0+</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 3: SYSTEM STUDY -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">3. </span>SYSTEM STUDY
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">3.1 Existing System</div>
+            <div class="content">
+                Traditional academic performance tracking systems typically involve manual record-keeping using spreadsheets, paper-based records, or basic database systems. These systems require significant manual effort from teachers and administrative staff to:
+            </div>
+            <ul>
+                <li class="list-item">Maintain student records and academic data</li>
+                <li class="list-item">Calculate and record marks manually</li>
+                <li class="list-item">Generate performance reports</li>
+                <li class="list-item">Identify students who need additional support</li>
+                <li class="list-item">Provide learning resources to students</li>
+            </ul>
+            <div class="content">
+                Existing systems are often fragmented, with different modules for different functions, making it difficult to get a comprehensive view of student performance. They lack intelligent analysis capabilities and do not provide personalized recommendations based on individual student performance.
+            </div>
+            
+            <div class="subsubsection">
+                <div class="subsubsection-title">3.1.1 Drawbacks</div>
+                <ul>
+                    <li class="list-item"><strong>Manual Data Entry:</strong> Time-consuming and prone to human errors</li>
+                    <li class="list-item"><strong>Lack of Intelligence:</strong> No automated analysis or pattern recognition</li>
+                    <li class="list-item"><strong>No Personalization:</strong> Cannot provide personalized learning recommendations</li>
+                    <li class="list-item"><strong>Limited Visualization:</strong> Basic or no graphical representation of data</li>
+                    <li class="list-item"><strong>Poor Resource Matching:</strong> Teachers must manually find and suggest learning materials</li>
+                    <li class="list-item"><strong>Scalability Issues:</strong> Difficult to scale with increasing number of students</li>
+                    <li class="list-item"><strong>Delayed Insights:</strong> Performance analysis requires significant manual calculation</li>
+                    <li class="list-item"><strong>No Early Warning:</strong> Difficult to identify struggling students early</li>
+                    <li class="list-item"><strong>Inefficient Communication:</strong> Limited real-time communication between teachers and students</li>
+                    <li class="list-item"><strong>Data Isolation:</strong> Data stored in separate systems, making analysis difficult</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">3.2 Proposed System</div>
+            <div class="content">
+                The AI-Powered Academic Performance Evaluation & Support System (AIPESM) is a comprehensive web-based solution that automates academic performance tracking and provides intelligent insights through artificial intelligence. The system integrates multiple functionalities into a unified platform, enabling efficient management of classes, students, subjects, and academic records.
+            </div>
+            <div class="content">
+                The proposed system leverages machine learning algorithms to automatically identify students who need additional support and provides personalized learning recommendations. It uses natural language processing techniques to match syllabus content with relevant learning resources, ensuring that students receive targeted assistance based on their specific academic weaknesses.
+            </div>
+            
+            <div class="subsubsection">
+                <div class="subsubsection-title">3.2.1 Features</div>
+                <ul>
+                    <li class="list-item"><strong>Automated Performance Tracking:</strong> System automatically tracks and stores student marks across all subjects</li>
+                    <li class="list-item"><strong>Real-time Analytics:</strong> Interactive charts and graphs provide instant performance insights</li>
+                    <li class="list-item"><strong>AI-Powered Recommendations:</strong> Machine learning algorithms identify weak subjects and recommend relevant learning resources</li>
+                    <li class="list-item"><strong>Role-Based Access:</strong> Separate dashboards for teachers and students with appropriate permissions</li>
+                    <li class="list-item"><strong>Class Management:</strong> Teachers can create and manage multiple classes efficiently</li>
+                    <li class="list-item"><strong>Student Management:</strong> Add, update, and manage student records seamlessly</li>
+                    <li class="list-item"><strong>Subject Management:</strong> Organize subjects per class and track performance by subject</li>
+                    <li class="list-item"><strong>Marks Management:</strong> Enter and update marks with validation and error handling</li>
+                    <li class="list-item"><strong>Performance Visualization:</strong> Color-coded performance indicators and progress bars</li>
+                    <li class="list-item"><strong>Responsive Design:</strong> Accessible on desktop, tablet, and mobile devices</li>
+                    <li class="list-item"><strong>Secure Authentication:</strong> Password hashing and session management for security</li>
+                    <li class="list-item"><strong>External Resource Integration:</strong> Integration with SerpAPI for finding relevant online resources</li>
+                    <li class="list-item"><strong>Syllabus Analysis:</strong> Automated parsing and analysis of syllabus content</li>
+                    <li class="list-item"><strong>Semantic Matching:</strong> TF-IDF and cosine similarity for intelligent content matching</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 4: LITERATURE SURVEY -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">4. </span>LITERATURE SURVEY
+        </div>
+        <div class="content">
+            The development of academic performance tracking systems has evolved significantly with the integration of artificial intelligence and machine learning technologies. This section reviews relevant research and existing systems in the field of educational technology and AI-powered learning support systems.
+        </div>
+        <div class="content">
+            <strong>1. Educational Data Mining and Learning Analytics:</strong> Research in educational data mining has demonstrated the effectiveness of analyzing student performance data to identify patterns and predict outcomes. Machine learning algorithms have been successfully applied to identify at-risk students and provide early interventions.
+        </div>
+        <div class="content">
+            <strong>2. Recommendation Systems in Education:</strong> Content-based and collaborative filtering approaches have been widely used in educational recommendation systems. TF-IDF vectorization and cosine similarity are established techniques for matching educational content with student needs.
+        </div>
+        <div class="content">
+            <strong>3. Web-Based Learning Management Systems:</strong> Modern LMS platforms incorporate various features for tracking student progress, but many lack intelligent analysis capabilities. The integration of AI into these systems has shown promise in improving student outcomes.
+        </div>
+        <div class="content">
+            <strong>4. Natural Language Processing in Education:</strong> NLP techniques have been applied to analyze educational content, including syllabus parsing, content extraction, and semantic matching. These techniques enable automated understanding of educational materials.
+        </div>
+        <div class="content">
+            <strong>5. Performance Visualization and Dashboards:</strong> Research has shown that visual representations of academic data help both teachers and students understand performance trends more effectively. Interactive charts and graphs improve comprehension and decision-making.
+        </div>
+        <div class="content">
+            The AIPESM system integrates these research findings to create a comprehensive solution that combines data tracking, AI-powered analysis, and personalized recommendations in a single platform.
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 5: SYSTEM DESIGN AND DEVELOPMENT -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">5. </span>SYSTEM DESIGN AND DEVELOPMENT
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">5.1 Input Design</div>
+            <div class="content">
+                The input design of AIPESM focuses on simplicity, validation, and user-friendliness. The system accepts various types of inputs through well-designed forms:
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Input Type</th>
+                    <th>Description</th>
+                    <th>Validation</th>
+                </tr>
+                <tr>
+                    <td>User Login</td>
+                    <td>Email and password for authentication</td>
+                    <td>Email format validation, required fields</td>
+                </tr>
+                <tr>
+                    <td>Class Creation</td>
+                    <td>Class name (e.g., "BCA 3rd Year Section A")</td>
+                    <td>Required field, text input</td>
+                </tr>
+                <tr>
+                    <td>Student Addition</td>
+                    <td>Student name and email address</td>
+                    <td>Email format, required fields, duplicate check</td>
+                </tr>
+                <tr>
+                    <td>Subject Addition</td>
+                    <td>Subject name for a class</td>
+                    <td>Required field, text input</td>
+                </tr>
+                <tr>
+                    <td>Marks Entry</td>
+                    <td>Numerical marks (0-100) for a subject</td>
+                    <td>Numeric range validation, required field</td>
+                </tr>
+                <tr>
+                    <td>Syllabus Upload</td>
+                    <td>Text content with unit structure</td>
+                    <td>Text parsing, unit extraction</td>
+                </tr>
+            </table>
+            
+            <div class="content">
+                All input forms include:
+            </div>
+            <ul>
+                <li class="list-item">Clear labels and placeholders</li>
+                <li class="list-item">Real-time validation feedback</li>
+                <li class="list-item">Error messages for invalid inputs</li>
+                <li class="list-item">Required field indicators</li>
+                <li class="list-item">Input type restrictions (email, number, etc.)</li>
+            </ul>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">5.2 Output Design</div>
+            <div class="content">
+                The output design of AIPESM emphasizes clarity, visual appeal, and information hierarchy. The system generates various types of outputs:
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Output Type</th>
+                    <th>Description</th>
+                    <th>Format</th>
+                </tr>
+                <tr>
+                    <td>Teacher Dashboard</td>
+                    <td>List of classes with management options</td>
+                    <td>Card-based grid layout</td>
+                </tr>
+                <tr>
+                    <td>Class Performance Chart</td>
+                    <td>Average marks per subject visualization</td>
+                    <td>Interactive bar chart (Chart.js)</td>
+                </tr>
+                <tr>
+                    <td>Student Dashboard</td>
+                    <td>Student's marks across all subjects</td>
+                    <td>Card layout with progress bars</td>
+                </tr>
+                <tr>
+                    <td>Performance Chart</td>
+                    <td>Student's marks visualization</td>
+                    <td>Color-coded bar chart</td>
+                </tr>
+                <tr>
+                    <td>AI Recommendations</td>
+                    <td>Personalized learning resources</td>
+                    <td>List of resource cards with links</td>
+                </tr>
+                <tr>
+                    <td>Student Profile</td>
+                    <td>Detailed student information and marks</td>
+                    <td>Form-based layout with editable fields</td>
+                </tr>
+            </table>
+            
+            <div class="content">
+                <strong>Performance Indicators:</strong>
+            </div>
+            <ul>
+                <li class="list-item"><strong>Excellent (80-100):</strong> Green color coding</li>
+                <li class="list-item"><strong>Good (60-79):</strong> Blue color coding</li>
+                <li class="list-item"><strong>Average (40-59):</strong> Yellow color coding</li>
+                <li class="list-item"><strong>Needs Improvement (0-39):</strong> Red color coding</li>
+            </ul>
+            
+            <div class="content">
+                All outputs are responsive and adapt to different screen sizes. Charts are interactive and provide tooltips on hover. The design uses modern UI principles including gradients, shadows, and smooth animations for enhanced user experience.
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">5.3 Description of Modules</div>
+            
+            <div class="content">
+                <strong>Module 1: Authentication Module</strong>
+            </div>
+            <div class="content">
+                Handles user login, session management, and role-based access control. Validates user credentials against the database and creates secure sessions. Implements password hashing using Werkzeug security utilities.
+            </div>
+            
+            <div class="content">
+                <strong>Module 2: Class Management Module</strong>
+            </div>
+            <div class="content">
+                Allows teachers to create, view, and delete classes. Manages class-related data including class names and teacher associations. Provides interface for accessing class details and student lists.
+            </div>
+            
+            <div class="content">
+                <strong>Module 3: Student Management Module</strong>
+            </div>
+            <div class="content">
+                Enables addition, removal, and management of student records. Associates students with classes and automatically creates user accounts for new students. Initializes default marks for all subjects when a student is added.
+            </div>
+            
+            <div class="content">
+                <strong>Module 4: Subject Management Module</strong>
+            </div>
+            <div class="content">
+                Manages subjects for each class. Allows teachers to add or remove subjects. When a new subject is added, the system automatically creates mark entries for all existing students in that class with default value of 0.
+            </div>
+            
+            <div class="content">
+                <strong>Module 5: Marks Management Module</strong>
+            </div>
+            <div class="content">
+                Handles entry, update, and retrieval of student marks. Validates mark values and stores them in the database. Supports updating marks for individual students and subjects.
+            </div>
+            
+            <div class="content">
+                <strong>Module 6: Performance Analytics Module</strong>
+            </div>
+            <div class="content">
+                Calculates performance metrics including average marks per subject for classes and individual student performance. Generates data for visualization through charts and graphs. Identifies weak subjects based on performance thresholds.
+            </div>
+            
+            <div class="content">
+                <strong>Module 7: AI Recommendation Module</strong>
+            </div>
+            <div class="content">
+                Core AI functionality that identifies weak subjects (marks < 40%) and generates personalized learning recommendations. Uses TF-IDF vectorization to convert syllabus and resource text into numerical vectors. Calculates cosine similarity to rank resources by relevance. Integrates with SerpAPI to fetch external learning resources.
+            </div>
+            
+            <div class="content">
+                <strong>Module 8: Syllabus Processing Module</strong>
+            </div>
+            <div class="content">
+                Parses syllabus text using regular expressions to extract units and content. Structures syllabus data for analysis and matching with learning resources. Stores parsed syllabus in the database for quick retrieval.
+            </div>
+            
+            <div class="content">
+                <strong>Module 9: Visualization Module</strong>
+            </div>
+            <div class="content">
+                Generates interactive charts using Chart.js library. Creates bar charts for performance visualization with color-coded bars based on performance levels. Provides responsive charts that adapt to screen size.
+            </div>
+            
+            <div class="content">
+                <strong>Module 10: User Interface Module</strong>
+            </div>
+            <div class="content">
+                Provides responsive, modern user interface using HTML5, CSS3, and Tailwind CSS. Implements role-based dashboards for teachers and students. Ensures accessibility and usability across different devices.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 6: TESTING AND IMPLEMENTATION -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">6. </span>TESTING AND IMPLEMENTATION
+        </div>
+        
+        <div class="content">
+            Testing is a crucial phase in software development that ensures the system functions correctly, meets requirements, and provides a reliable user experience. The AIPESM system underwent comprehensive testing at various levels.
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">6.1 Unit Testing</div>
+            <div class="content">
+                Individual modules and functions were tested in isolation:
+            </div>
+            <ul>
+                <li class="list-item"><strong>Authentication Functions:</strong> Verified password hashing, session creation, and role validation</li>
+                <li class="list-item"><strong>Database Operations:</strong> Tested CRUD operations for all collections (users, classes, students, marks, subjects, syllabus)</li>
+                <li class="list-item"><strong>Syllabus Parser:</strong> Validated regular expression parsing for unit extraction</li>
+                <li class="list-item"><strong>AI Algorithms:</strong> Tested TF-IDF vectorization and cosine similarity calculations</li>
+                <li class="list-item"><strong>Data Validation:</strong> Verified input validation and error handling</li>
+            </ul>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">6.2 Integration Testing</div>
+            <div class="content">
+                Tested the interaction between different modules:
+            </div>
+            <ul>
+                <li class="list-item"><strong>Authentication Integration:</strong> Verified session-based access control across all routes</li>
+                <li class="list-item"><strong>Database Integration:</strong> Tested data flow between application and MongoDB</li>
+                <li class="list-item"><strong>API Integration:</strong> Validated SerpAPI integration for resource fetching</li>
+                <li class="list-item"><strong>Chart Integration:</strong> Tested Chart.js integration with backend data</li>
+            </ul>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">6.3 System Testing</div>
+            <div class="content">
+                Complete system functionality was tested:
+            </div>
+            <ul>
+                <li class="list-item"><strong>User Workflows:</strong> Tested complete user journeys for teachers and students</li>
+                <li class="list-item"><strong>Class Management:</strong> Verified creation, viewing, and deletion of classes</li>
+                <li class="list-item"><strong>Student Management:</strong> Tested adding students, viewing profiles, updating marks</li>
+                <li class="list-item"><strong>AI Recommendations:</strong> Validated recommendation generation for weak subjects</li>
+                <li class="list-item"><strong>Performance Charts:</strong> Verified accurate data visualization</li>
+            </ul>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">6.4 User Acceptance Testing</div>
+            <div class="content">
+                The system was tested with actual users (teachers and students) to ensure:
+            </div>
+            <ul>
+                <li class="list-item">Interface is intuitive and easy to use</li>
+                <li class="list-item">All features work as expected</li>
+                <li class="list-item">Performance is acceptable</li>
+                <li class="list-item">Recommendations are relevant and useful</li>
+            </ul>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">6.5 Implementation</div>
+            <div class="content">
+                The system is implemented as a web application using the following architecture:
+            </div>
+            <ul>
+                <li class="list-item"><strong>Frontend:</strong> HTML templates with Tailwind CSS and JavaScript for client-side interactivity</li>
+                <li class="list-item"><strong>Backend:</strong> Flask framework handling HTTP requests and business logic</li>
+                <li class="list-item"><strong>Database:</strong> MongoDB storing all application data</li>
+                <li class="list-item"><strong>Hosting:</strong> Deployed on cloud platform (e.g., Heroku) with Gunicorn as WSGI server</li>
+            </ul>
+            
+            <div class="content">
+                <strong>Deployment Steps:</strong>
+            </div>
+            <ol style="margin-left: 30px;">
+                <li style="margin-bottom: 8px;">Set up MongoDB database (cloud or local)</li>
+                <li style="margin-bottom: 8px;">Configure environment variables (database URI, API keys)</li>
+                <li style="margin-bottom: 8px;">Install Python dependencies from requirements.txt</li>
+                <li style="margin-bottom: 8px;">Initialize database with seed data (users, sample classes)</li>
+                <li style="margin-bottom: 8px;">Run Flask development server or deploy with Gunicorn</li>
+                <li style="margin-bottom: 8px;">Configure web server and domain (if applicable)</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 7: CONCLUSION -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">7. </span>CONCLUSION
+        </div>
+        <div class="content">
+            The AI-Powered Academic Performance Evaluation & Support System (AIPESM) successfully addresses the challenges faced by traditional academic tracking systems through the integration of modern web technologies and artificial intelligence. The system provides a comprehensive solution for managing academic performance data while offering intelligent insights and personalized recommendations.
+        </div>
+        <div class="content">
+            The implementation demonstrates the effective use of machine learning algorithms (TF-IDF and cosine similarity) for content matching and recommendation generation. The system's ability to automatically identify weak subjects and provide relevant learning resources significantly enhances the learning experience for students and reduces the workload for teachers.
+        </div>
+        <div class="content">
+            Key achievements of the project include:
+        </div>
+        <ul>
+            <li class="list-item">Successful integration of AI/ML algorithms with web application</li>
+            <li class="list-item">Development of a responsive, user-friendly interface</li>
+            <li class="list-item">Efficient database design supporting scalable data management</li>
+            <li class="list-item">Implementation of secure authentication and authorization</li>
+            <li class="list-item">Real-time performance visualization through interactive charts</li>
+            <li class="list-item">Integration with external APIs for resource discovery</li>
+        </ul>
+        <div class="content">
+            The system is ready for deployment and can be effectively used in educational institutions to improve academic tracking and student support processes. The modular design allows for future enhancements and scalability.
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 8: SCOPE OF FUTURE ENHANCEMENT -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">8. </span>SCOPE OF FUTURE ENHANCEMENT
+        </div>
+        <div class="content">
+            While the current implementation provides comprehensive functionality, there are several areas where the system can be enhanced in the future:
+        </div>
+        <ul>
+            <li class="list-item"><strong>Advanced AI Models:</strong> Integration of transformer-based models (BERT, GPT) for better content understanding and more accurate recommendations</li>
+            <li class="list-item"><strong>Predictive Analytics:</strong> Machine learning models to predict student performance and identify at-risk students early</li>
+            <li class="list-item"><strong>Mobile Applications:</strong> Native iOS and Android apps for better mobile experience</li>
+            <li class="list-item"><strong>Communication Features:</strong> Built-in messaging system for teacher-student communication</li>
+            <li class="list-item"><strong>Notification System:</strong> Email and SMS notifications for performance alerts and updates</li>
+            <li class="list-item"><strong>Assignment Management:</strong> Integration of assignment submission and grading features</li>
+            <li class="list-item"><strong>Attendance Tracking:</strong> Automated attendance management and reporting</li>
+            <li class="list-item"><strong>Parent Portal:</strong> Separate portal for parents to monitor their child's progress</li>
+            <li class="list-item"><strong>Report Generation:</strong> PDF and Excel export functionality for reports</li>
+            <li class="list-item"><strong>Multi-language Support:</strong> Internationalization for multiple languages</li>
+            <li class="list-item"><strong>Learning Path Creation:</strong> Automated generation of personalized learning paths</li>
+            <li class="list-item"><strong>Peer Learning:</strong> Features for collaborative learning and peer interaction</li>
+            <li class="list-item"><strong>Gamification:</strong> Badges, achievements, and leaderboards to motivate students</li>
+            <li class="list-item"><strong>Video Integration:</strong> Direct integration with video learning platforms</li>
+            <li class="list-item"><strong>Advanced Analytics:</strong> Trend analysis, performance forecasting, and comparative analytics</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SECTION 9: REFERENCES -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">9. </span>REFERENCES
+        </div>
+        <div class="content">
+            1. Flask Documentation. (2023). Flask Web Framework. Retrieved from https://flask.palletsprojects.com/
+        </div>
+        <div class="content">
+            2. MongoDB Documentation. (2023). MongoDB Manual. Retrieved from https://docs.mongodb.com/
+        </div>
+        <div class="content">
+            3. scikit-learn Developers. (2023). scikit-learn: Machine Learning in Python. Retrieved from https://scikit-learn.org/stable/
+        </div>
+        <div class="content">
+            4. Chart.js Documentation. (2023). Chart.js - Simple yet flexible JavaScript charting. Retrieved from https://www.chartjs.org/docs/
+        </div>
+        <div class="content">
+            5. Tailwind CSS Documentation. (2023). Tailwind CSS - A utility-first CSS framework. Retrieved from https://tailwindcss.com/docs
+        </div>
+        <div class="content">
+            6. Romero, C., & Ventura, S. (2013). Data mining in education. Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery, 3(1), 12-27.
+        </div>
+        <div class="content">
+            7. Manouselis, N., Drachsler, H., Verbert, K., & Duval, E. (2012). Recommender systems for learning. Springer Science & Business Media.
+        </div>
+        <div class="content">
+            8. SerpAPI Documentation. (2023). SerpAPI - Google Search API. Retrieved from https://serpapi.com/
+        </div>
+        <div class="content">
+            9. Python Software Foundation. (2023). Python 3 Documentation. Retrieved from https://docs.python.org/3/
+        </div>
+        <div class="content">
+            10. Werkzeug Documentation. (2023). Werkzeug - The WSGI Utility Library. Retrieved from https://werkzeug.palletsprojects.com/
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 10: APPENDICES -->
+<div class="page-break">
+    <div class="section">
+        <div class="section-title">
+            <span class="section-number">10. </span>APPENDICES
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">A. Diagrams</div>
+            
+            <div class="content">
+                <strong>Figure 1: System Architecture Diagram</strong>
+            </div>
+            <div class="figure">
+                <div style="border: 2px solid #000; padding: 20px; margin: 20px 0; text-align: center; min-height: 200px;">
+                    <p><strong>USER (Browser)</strong></p>
+                    <p>↓</p>
+                    <p><strong>FLASK WEB SERVER</strong></p>
+                    <p>↓</p>
+                    <p><strong>MONGODB DATABASE</strong></p>
+                    <p style="margin-top: 20px;">External APIs: SerpAPI → Resource Search</p>
+                </div>
+                <div class="figure-title">System Architecture</div>
+            </div>
+            
+            <div class="content">
+                <strong>Figure 2: Data Flow Diagram</strong>
+            </div>
+            <div class="figure">
+                <div style="border: 2px solid #000; padding: 20px; margin: 20px 0; text-align: center; min-height: 200px;">
+                    <p><strong>Teacher Input</strong> → Class/Student/Subject Data → <strong>Database</strong></p>
+                    <p><strong>Marks Entry</strong> → Performance Calculation → <strong>Analytics</strong></p>
+                    <p><strong>Weak Subject Detection</strong> → AI Analysis → <strong>Recommendations</strong></p>
+                </div>
+                <div class="figure-title">Data Flow Diagram</div>
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">B. Sample Coding</div>
+            
+            <div class="content">
+                <strong>Sample Code 1: AI Recommendation Function</strong>
+            </div>
+            <div class="code-block">
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+def recommend_resources(subject, class_id):
+    # Fetch syllabus units
+    syllabus_docs = syllabus.find({
+        "subject": subject,
+        "class_id": class_id
+    })
+    syllabus_text = " ".join([s["content"] for s in syllabus_docs])
+    
+    # Fetch resources
+    resource_docs = list(resources_col.find({"subject": subject}))
+    resource_texts = [r["description"] for r in resource_docs]
+    
+    # TF-IDF Vectorization
+    vectorizer = TfidfVectorizer()
+    vectors = vectorizer.fit_transform([syllabus_text] + resource_texts)
+    
+    # Calculate cosine similarity
+    similarities = cosine_similarity(vectors[0:1], vectors[1:]).flatten()
+    
+    # Rank results
+    results = []
+    for i, score in enumerate(similarities):
+        r = resource_docs[i]
+        r["score"] = float(score)
+        results.append(r)
+    
+    results.sort(key=lambda x: x["score"], reverse=True)
+    return results
+            </div>
+            
+            <div class="content">
+                <strong>Sample Code 2: Syllabus Parser</strong>
+            </div>
+            <div class="code-block">
+import re
+
+def parse_syllabus(text):
+    units = []
+    parts = re.split(r"(Unit\s+\d+:)", text)
+    
+    for i in range(1, len(parts), 2):
+        unit_name = parts[i].replace(":", "").strip()
+        content = parts[i + 1].strip()
+        
+        if content:
+            units.append({
+                "unit": unit_name,
+                "content": content
+            })
+    
+    return units
+            </div>
+            
+            <div class="content">
+                <strong>Sample Code 3: Weak Subject Identification</strong>
+            </div>
+            <div class="code-block">
+def get_weak_subjects(student_email, class_id):
+    weak = []
+    
+    for m in marks.find({
+        "student_email": student_email,
+        "class_id": class_id
+    }):
+        if m["marks"] < 40:
+            weak.append(m["subject"])
+    
+    return weak
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">C. Sample Input</div>
+            
+            <div class="content">
+                <strong>Sample Input 1: Class Creation</strong>
+            </div>
+            <div class="code-block">
+Class Name: "BCA 3rd Year Section A"
+            </div>
+            
+            <div class="content">
+                <strong>Sample Input 2: Student Addition</strong>
+            </div>
+            <div class="code-block">
+Student Name: "John Doe"
+Student Email: "john.doe@example.com"
+Class ID: "507f1f77bcf86cd799439011"
+            </div>
+            
+            <div class="content">
+                <strong>Sample Input 3: Marks Entry</strong>
+            </div>
+            <div class="code-block">
+Student Email: "john.doe@example.com"
+Subject: "Operating Systems"
+Marks: 65
+Class ID: "507f1f77bcf86cd799439011"
+            </div>
+            
+            <div class="content">
+                <strong>Sample Input 4: Syllabus Text</strong>
+            </div>
+            <div class="code-block">
+Unit 1: Introduction to Operating Systems
+Overview of operating systems, functions, types of operating systems.
+
+Unit 2: Process Management
+Process concept, process scheduling, CPU scheduling algorithms.
+
+Unit 3: Memory Management
+Memory allocation, paging, segmentation, virtual memory.
+            </div>
+        </div>
+        
+        <div class="subsection">
+            <div class="subsection-title">D. Sample Output</div>
+            
+            <div class="content">
+                <strong>Sample Output 1: Performance Chart Data</strong>
+            </div>
+            <div class="code-block">
+{
+  "Operating Systems": 72.5,
+  "Database Management": 68.3,
+  "Computer Networks": 55.8,
+  "Software Engineering": 81.2
+}
+            </div>
+            
+            <div class="content">
+                <strong>Sample Output 2: AI Recommendations</strong>
+            </div>
+            <div class="code-block">
+[
+  {
+    "title": "Operating Systems Tutorial",
+    "snippet": "Complete guide to operating systems concepts...",
+    "link": "https://example.com/os-tutorial",
+    "score": 0.85
+  },
+  {
+    "title": "Process Scheduling Explained",
+    "snippet": "Learn about CPU scheduling algorithms...",
+    "link": "https://example.com/scheduling",
+    "score": 0.78
+  }
+]
+            </div>
+            
+            <div class="content">
+                <strong>Sample Output 3: Student Marks Display</strong>
+            </div>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Operating Systems</td>
+                    <td>65</td>
+                    <td>Good</td>
+                </tr>
+                <tr>
+                    <td>Database Management</td>
+                    <td>72</td>
+                    <td>Good</td>
+                </tr>
+                <tr>
+                    <td>Computer Networks</td>
+                    <td>35</td>
+                    <td>Needs Improvement</td>
+                </tr>
+                <tr>
+                    <td>Software Engineering</td>
+                    <td>85</td>
+                    <td>Excellent</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
